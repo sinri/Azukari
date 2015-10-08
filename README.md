@@ -45,7 +45,7 @@ Open your project directory path in terminal, create a directory with any name y
 
 Open the storage directory you created, make `.htaccess` file and write `php_flag engine off` into it.
 
-	sudo cat php_flag engine off > .htaccess
+	sudo echo php_flag engine off > .htaccess
 
 It requires `AllowOverride All` in the Apache `httpd.conf` or `.htaccess`.
 
@@ -57,9 +57,9 @@ Edit `user.php` to set the user information.
 
 # API Usage
 
-Azukari provides three kinds of services, to upload, delete, and validate file.
+Azukari provides three kinds of services, to upload, delete, and validate file, with `api.php`.
 
-For each service, you would use `POST` request with same fields. And you must hold the fields `user` and `key` to compute `checksum` with other fields other than `act`.
+For each service, you would use `POST` request with fields listed below. And you must hold the fields `user` and `key` to compute `checksum` with other fields other than `act`.
 
 	// Checksum Algorithm in PHP
 	checksum = md5($user.$filename.$timestamp.$key.$body);
